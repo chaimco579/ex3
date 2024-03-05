@@ -9,13 +9,13 @@ pipeline {
 
     stage('deployment') {
       steps {
-        sh 'kubectl apply -f flask-deployment.yaml'
+        sh 'kubectl apply -f /home/pini/k8s/flask-deployment.yaml'
       }
     }
 
     stage('service') {
       steps {
-        sh 'kubectl apply -f flask-service.yaml'
+        sh 'kubectl apply -f /home/pini/k8s/flask-service.yaml'
       }
     }
 

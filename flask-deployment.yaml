@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask2-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask2-deployment
+  template:
+    metadata:
+      labels:
+        app: flask2-deployment
+    spec:
+      containers:
+         - name: flask2
+           image: chaimco/ex3:0.0.1
+           ports:
+           - containerPort: 5000

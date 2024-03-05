@@ -4,6 +4,7 @@ pipeline {
     stage('k8s') {
       steps {
         sh 'echo starting k8s'
+        sh 'git clone https://github.com/chaimco579/ex3.git' 
       }
     }
 

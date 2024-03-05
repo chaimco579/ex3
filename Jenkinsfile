@@ -1,9 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage('docker-comose') {
+    stage('k8s') {
       steps {
-        sh 'docker-compose up -d'
+        sh 'echo starting k8s'
+      }
+    }
+
+    stage('deployment') {
+      steps {
+        sh 'kubectl apply -f flask-deployment.yaml'
+      }
+    }
+
+    stage('service') {
+      steps {
+        sh 'kubectl apply -f flask-service.yaml'
       }
     }
 

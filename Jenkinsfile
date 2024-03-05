@@ -9,7 +9,7 @@ pipeline {
 
     stage('deployment') {
       steps {
-        sh 'kubectl apply -f flask-deployment.yaml'
+        sh 'kubectl apply -f flask-deployment.yaml --validate=false'
       }
     }
 

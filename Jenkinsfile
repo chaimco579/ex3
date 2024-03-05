@@ -12,7 +12,7 @@ pipeline {
     stage('deployment') {
       steps {
         dir('ex3') {
-                    sh 'kubectl apply -f flask-deployment.yaml --validate=false'
+                    sh 'kubectl apply -f flask-deployment.yaml'
                 }
       }
     }
@@ -20,7 +20,7 @@ pipeline {
     stage('service') {
       steps {
         dir('ex3') {
-                    sh 'kubectl apply -f flask-service.yaml --validate=false'
+                    sh 'kubectl apply -f flask-service.yaml'
                 }
       }
     }

@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('k8s') {
       steps {
+        deleteDir()
         sh 'echo starting k8s'
         sh 'git clone https://github.com/chaimco579/ex3.git' 
       }

@@ -12,6 +12,7 @@ pipeline {
     stage('deployment') {
       steps {
         dir('ex3') {
+                    sh 'cat flask-deployment.yaml'
                     sh 'kubectl apply -f flask-deployment.yaml'
                 }
       }

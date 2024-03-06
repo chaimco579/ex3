@@ -5,26 +5,6 @@ pipeline {
             steps {
                 deleteDir()
                 sh 'echo starting k8s...'
-                // Wait for Minikube to be up and running
-                script {
-                    echo 'Waiting for Minikube to be ready...'
-                    def attempts = 0
-                    def maxAttempts = 10
-                    while (attempts < maxAttempts) {
-                        def minikubeStatus = sh(script: 'minikube status', returnStatus: true)
-                        if (minikubeStatus == 0) {
-                            echo 'Minikube is ready!'
-                            break
-                        } else {
-                            echo 'Minikube is not ready yet. Retrying...'
-                            attempts++
-                        }
-                    }
-
-                    if (attempts == maxAttempts) {
-                        error 'Max attempts reached. Unable to start Minikube.'
-                    }
-                }
                 sh 'echo cloning project...'
                 sh 'git clone https://github.com/chaimco579/ex3.git'
             }

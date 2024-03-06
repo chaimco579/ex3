@@ -5,7 +5,6 @@ pipeline {
             steps {
                 deleteDir()
                 sh 'echo starting k8s...'
-                sh 'minikube start'
                 // Wait for Minikube to be up and running
                 script {
                     echo 'Waiting for Minikube to be ready...'
@@ -18,7 +17,6 @@ pipeline {
                             break
                         } else {
                             echo 'Minikube is not ready yet. Retrying...'
-                            sleep 30
                             attempts++
                         }
                     }
